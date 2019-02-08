@@ -3,19 +3,18 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>How to use git init,git add,git commit-v | Siqi&#39;s Blog</title>
+  <title>How to use ls,cat,mv,touch | Siqi&#39;s Blog</title>
   <meta name="author" content="Siqi Yan">
   
-  <meta name="description" content="git init - 初始化仓库Git使用git init命令初始化仓库。首先建立一个空的目录，初始化成功，该目录下就会生成一个.git目录。.git目录中存放着管理当前目录所需的仓库数据。
+  <meta name="description" content="lsIs是list的缩写，表示显示文件目录列表。（只显示非隐藏文件的文件名）一些用法:-a：–all的缩写，显示所有文件，包括隐藏文件（以.开头的文件）-L：列出长数据串，显示文件的大小，时间等数据信息。ls -la：表示显示文件包括的所有信息。
+cat主要有三个功能：
 
-
-
-git add - 向暂存区添加文件要想让文件成为Git的管理对象，需要通过git add 命令将其加">
+一次显示整个文件：cat ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="How to use git init,git add,git commit-v">
+  <meta property="og:title" content="How to use ls,cat,mv,touch">
   <meta property="og:site_name" content="Siqi&#39;s Blog">
 
   
@@ -23,7 +22,7 @@ git add - 向暂存区添加文件要想让文件成为Git的管理对象，需�
   
   
   <link href="/favicon.ico" rel="icon" type="image/x-ico">
-  <link rel="canonical" href="http://yoursite.com/2019/02/08/Basic-git-commands/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/02/08/git-basics/index.html">
   <link rel="alternate" href="/atom.xml" title="Siqi&#39;s Blog" type="application/atom+xml">
   
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
@@ -83,30 +82,28 @@ git add - 向暂存区添加文件要想让文件成为Git的管理对象，需�
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-02-08T08:57:05.000Z"><a href="/2019/02/08/Basic-git-commands/">2019-02-08</a></time>
+        <time datetime="2019-02-08T10:33:31.000Z"><a href="/2019/02/08/git-basics/">2019-02-08</a></time>
       
       
   
-    <h1 class="title">How to use git init,git add,git commit-v</h1>
+    <h1 class="title">How to use ls,cat,mv,touch</h1>
   
 
     </header>
     <div class="entry">
       
         <ol>
-<li>git init - 初始化仓库<br>Git使用git init命令初始化仓库。<br>首先建立一个空的目录，初始化成功，该目录下就会生成一个.git目录。.git目录中存放着管理当前目录所需的仓库数据。</li>
+<li><code>ls</code><br>Is是list的缩写，表示显示文件目录列表。（只显示非隐藏文件的文件名）<br>一些用法:<br>-a：–all的缩写，显示所有文件，包括隐藏文件（以.开头的文件）<br>-L：列出长数据串，显示文件的大小，时间等数据信息。<br>ls -la：表示显示文件包括的所有信息。</li>
+<li><code>cat</code><br>主要有三个功能：</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/12302412-b4dadcfe89ed3f6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/778/format/webp" alt="example"></p>
-<ol start="2">
-<li>git add - 向暂存区添加文件<br>要想让文件成为Git的管理对象，需要通过git add 命令将其加入暂存区。<br>暂存区是提交前的一个临时区域。</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/12302412-d73cfe3f4bd99dec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/834/format/webp" alt="exampleq"></p>
+<p>一次显示整个文件：cat filename<br>从键盘创建一个文件：cat &gt; filename 只能创建新文件，不能编辑已有文件。<br>将几个文件合并为一个文件：cat file1 file2 &gt; file</p>
 <ol start="3">
-<li><p>git commit -v :提交时显示所有diff信息<br>输入以上命令，再按回车，就可以看到所有的diff信息</p>
+<li><p><code>mv</code><br>mv是move的缩写,表示重命名或者移动文件。<br>命令格式：mv 源文件 目标文件</p>
 </li>
-<li><p>如果遇到了别的不懂的命令，可以使用explainshell这个网站来查询解释<br><a href="https://explainshell.com/" target="_blank" rel="noopener">explainshell.com</a></p>
+<li><p><code>touch</code><br>创建文件,改变文件更新时间<br>命令格式： touch file<br>若file不存在，则创建新文件，存在，就修改系统时间</p>
 </li>
 </ol>
+<p>如果遇到了别的不懂的命令，可以使用explainshell这个网站来查询解释<br><a href="https://explainshell.com" target="_blank" rel="noopener">explainshell.com</a></p>
 
       
     </div>
