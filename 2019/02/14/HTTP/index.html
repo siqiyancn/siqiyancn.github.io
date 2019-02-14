@@ -6,10 +6,10 @@
   <title>HTTP | Siqi&#39;s Blog</title>
   <meta name="author" content="Siqi Yan">
   
-  <meta name="description" content="HTTP 请求包括哪些部分?例：`/请求最多包括四部分，最少包含三部分。（第四部分可为空）
+  <meta name="description" content="HTTP 请求包括哪些部分?例：12345&amp;gt; GET / HTTP/1.1&amp;gt; Host: www.baidu.com&amp;gt; User-Agent: curl/7.55.0&amp;gt; Accept: */*&amp;gt;
+请求最多包括四部分，最少包含三部分。（第四部分可为空）
 
-如何用Chrome开发者工具查看 HTTP 请求内容HTTP 响应包括哪些部分，如何用Chrome开发者工具查看 HTTP 响应内容如何使用 curl 命令
-空行即使第四部分的请求数据为空，也必须有空行。">
+请求行用来说明请">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -92,11 +92,51 @@
     </header>
     <div class="entry">
       
-        <h1 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分?"></a>HTTP 请求包括哪些部分?</h1><p>例：<br><code>`</code>/<br>请求最多包括四部分，最少包含三部分。（第四部分可为空）</p>
+        <h3 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分?"></a>HTTP 请求包括哪些部分?</h3><p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; GET / HTTP/1.1</span><br><span class="line">&gt; Host: www.baidu.com</span><br><span class="line">&gt; User-Agent: curl/7.55.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>请求最多包括四部分，最少包含三部分。（第四部分可为空）</p>
 <ol>
-<li>如何用Chrome开发者工具查看 HTTP 请求内容<br>HTTP 响应包括哪些部分，如何用Chrome开发者工具查看 HTTP 响应内容<br>如何使用 curl 命令</li>
-<li>空行<br>即使第四部分的请求数据为空，也必须有空行。</li>
+<li>请求行<br>用来说明请求类型,路径以及所使用的HTTP版本.<br>例子里的请求类型为<code>GET</code>,别的会碰到的请求类型有<br>GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS等<br>路径默认为<code>/</code>,路径包括查询参数，但不包括<strong>锚点</strong></li>
+<li>请求头部<br>紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息。</li>
+<li>空行<br><strong>即使第四部分的请求数据为空，也必须有空行。</strong></li>
+<li>要上传的数据</li>
 </ol>
+<h3 id="用Chrome开发者工具查看HTTP请求内容"><a href="#用Chrome开发者工具查看HTTP请求内容" class="headerlink" title="用Chrome开发者工具查看HTTP请求内容"></a>用Chrome开发者工具查看HTTP请求内容</h3><ol>
+<li>打开 Network</li>
+<li>地址栏输入网址</li>
+<li>在 Network 点击，查看 request，点击「view source」</li>
+<li>点击「view source」,就可以看到请求的前三部分了</li>
+<li>如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</li>
+</ol>
+<h3 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分?"></a>HTTP 响应包括哪些部分?</h3><p>HTTP响应也由四个部分组成，分别是：状态行、消息报头、空行和响应正文。<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt; HTTP/1.1 200 OK</span><br><span class="line">&lt; Accept-Ranges: bytes</span><br><span class="line">&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform</span><br><span class="line">&lt; Connection: Keep-Alive</span><br><span class="line">&lt; Content-Length: 2443</span><br><span class="line">&lt; Content-Type: text/html</span><br><span class="line">&lt; Date: Thu, 14 Feb 2019 14:51:06 GMT</span><br><span class="line">&lt; Etag: &quot;58860411-98b&quot;</span><br><span class="line">&lt; Last-Modified: Mon, 23 Jan 2017 13:24:33 GMT</span><br><span class="line">&lt; Pragma: no-cache</span><br><span class="line">&lt; Server: bfe/1.0.8.18</span><br><span class="line">&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/</span><br><span class="line">&lt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt; 后面省略...</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>状态行<br>由HTTP协议版本号， 状态码， 状态解释 三部分组成。<br>示例中第一行为状态行，（HTTP/1.1）表明HTTP版本为1.1版本，状态码为200，状态消息为 OK 。</li>
+<li>消息报头，用来说明客户端要使用的一些附加信息<br>Date:生成响应的日期和时间；Content-Type:指定了第四部分的格式</li>
+<li>空格</li>
+<li>响应正文，服务器返回给客户端的文本信息。<br>空行后面的html部分为响应正文。</li>
+</ol>
+<h3 id="用Chrome开发者工具查看-HTTP-响应内容"><a href="#用Chrome开发者工具查看-HTTP-响应内容" class="headerlink" title="用Chrome开发者工具查看 HTTP 响应内容"></a>用Chrome开发者工具查看 HTTP 响应内容</h3><ol>
+<li>打开 Network</li>
+<li>输入网址</li>
+<li>选中第一个响应</li>
+<li>查看 Response Headers，点击「view source」，点击「view source」</li>
+<li>点击「view source」</li>
+<li>你会看到响应的前两部分<br>查看 Response 或者 Preview，你会看到响应的第 4 部分</li>
+</ol>
+<h3 id="如何使用-curl-命令"><a href="#如何使用-curl-命令" class="headerlink" title="如何使用 curl 命令?"></a>如何使用 curl 命令?</h3><p>curl命令是一个功能强大的网络工具，它能够通过http、ftp等方式下载文件，也能够上传文件，但按传统，习惯称url为下载工具。类似的工具还有wget。</p>
+<p>语法：curl [option] [url]</p>
+<p>参数<br>curl的参数很多，这里只是常见的几种</p>
+<p>-v/–verbose 小写的v参数，用于打印更多信息，包括发送的请求信息，这在调试脚本是特别有用。</p>
+<p>-m/–max-time <seconds> 指定处理的最大时长</seconds></p>
+<p>-H/–header <header> 指定请求头参数</header></p>
+<p>-s/–slient 减少输出的信息，比如进度</p>
+<p>–connect-timeout <seconds> 指定尝试连接的最大时长</seconds></p>
+<p>-x/–proxy &lt;proxyhost[:port]&gt; 指定代理服务器地址和端口，端口默认为1080</p>
+<p>-T/–upload-file <file> 指定上传文件路径</file></p>
+<p>-o/–output <file> 指定输出文件名称</file></p>
+<p>-d/–data/–data-ascii <data> 指定POST的内容</data></p>
+<p>–retry <num> 指定重试次数</num></p>
+<p>-e/–referer <url> 指定引用地址</url></p>
+<p>-I/–head 仅返回头部信息，使用HEAD请求</p>
 
       
     </div>
